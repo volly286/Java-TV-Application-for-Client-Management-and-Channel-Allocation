@@ -1,100 +1,100 @@
-# Aplicație JavaSpringBoot/JavaFX
-**Autor**: Marin Valentin-Gabriel 432B
+# Java Spring Boot/JavaFX Application  
+**Author**: Marin Valentin-Gabriel 432B  
 
-## Introducere
-Aplicația prezentată este dezvoltată utilizând Java Spring Boot pentru backend și JavaFX pentru frontend, cu CSS pentru stilizare. Aceasta gestionează o relație de tip N:M între două entități: clienți și posturi TV. Proiectul îmbină avantajele unei arhitecturi moderne bazate pe Spring Boot, oferind un backend robust și scalabil, cu o interfață grafică prietenoasă și ușor de utilizat dezvoltată cu JavaFX.
+## Introduction  
+The presented application is developed using Java Spring Boot for the backend and JavaFX for the frontend, with CSS for styling. It manages an N:M relationship between two entities: clients and TV stations. The project combines the advantages of a modern architecture based on Spring Boot, providing a robust and scalable backend, with a user-friendly and easy-to-use graphical interface developed with JavaFX.
 
-## Tehnologii utilizate
-- **Java Spring Boot**: Framework-ul Spring Boot este folosit pentru a dezvolta backend-ul aplicației. Acesta oferă o configurare rapidă, suport pentru REST API-uri și integrare facilă cu MySQL.
-- **JavaFX și CSS**: JavaFX este utilizat pentru a crea o interfață grafică modernă și responsivă. CSS este folosit pentru a personaliza design-ul elementelor din aplicație.
-- **MySQL**: Baza de date utilizată este MySQL, iar conexiunea cu aplicația a fost realizată folosind biblioteca mysql-connector.
+## Technologies Used  
+- **Java Spring Boot**: The Spring Boot framework is used to develop the backend of the application. It provides quick setup, support for REST APIs, and easy integration with MySQL.  
+- **JavaFX and CSS**: JavaFX is used to create a modern and responsive graphical interface. CSS is used to customize the design of elements in the application.  
+- **MySQL**: The database used is MySQL, and the connection to the application is made using the mysql-connector library.
 
-## Descrierea aplicației
-Aplicația gestionează relația N:M dintre două entități principale:
-- **Clienți** - reprezentați prin atributele: nume, prenume și email.
-- **Posturi TV** - fiecare având un nume și o descriere.
+## Application Description  
+The application manages the N:M relationship between two main entities:
+- **Clients** - represented by attributes: first name, last name, and email.
+- **TV Stations** - each having a name and description.
 
-Funcționalitățile aplicației includ:
-- CRUD (Create, Read, Update, Delete) pentru tabelele `clienti` și `posturitv`.
-- Asocierea și dezasocierea entităților `clienti` și `posturitv` printr-o tabelă intermediară `clienti_posturi`.
+The application's functionalities include:
+- CRUD (Create, Read, Update, Delete) for the `clients` and `tv_stations` tables.
+- Associating and dissociating the entities `clients` and `tv_stations` through an intermediate table `clients_tv_stations`.
 
-## Diagrama bazei de date
-Diagrama bazei de date reprezintă relația N:M dintre `clienti` și `posturitv` prin intermediul tabelei `clienti_posturi`. Aceasta a fost generată utilizând MySQL Workbench și poate fi accesată prin fișierul `MySQL_Diagram.html` din folderul resurse.
+## Database Diagram  
+The database diagram represents the N:M relationship between `clients` and `tv_stations` through the `clients_tv_stations` table. It was generated using MySQL Workbench and can be accessed via the file `MySQL_Diagram.html` in the resources folder.
 
-## Structura folderului aplicației
-Structura completă a proiectului poate fi găsită în folderul resurse, sub denumirea `Structura_Proiect_Java.html`.
+## Application Folder Structure  
+The complete project structure can be found in the resources folder, under the name `Project_Structure_Java.html`.
 
-## Părți importante din cod
+## Important Code Sections  
 
-### Funcționalitățile CRUD:
+### CRUD Functionalities:
 
-#### Listare Client:
-- Metoda `getAllClients()` obține lista tuturor clienților din backend printr-o cerere HTTP de tip GET.
-- Construiește cererea HTTP și o trimite către backend pentru a obține răspunsul.
-- Verifică statusul răspunsului HTTP și gestionează erorile.
+#### List Clients:
+- The `getAllClients()` method fetches the list of all clients from the backend via a GET HTTP request.
+- Constructs the HTTP request and sends it to the backend to retrieve the response.
+- Checks the HTTP response status and handles errors.
 
-#### Adăugare Client:
-- Metoda `handleAdauga()` preia datele introduse de utilizator, validează datele și creează un obiect Client.
-- Se apelează serviciul `ClientService` pentru adăugarea clientului în baza de date.
-- Gestionarea excepțiilor și informarea utilizatorului.
+#### Add Client:
+- The `handleAdd()` method retrieves the data entered by the user, validates it, and creates a `Client` object.
+- It calls the `ClientService` service to add the client to the database.
+- Exception handling and user notification.
 
-#### Editare Client:
-- Metoda `handleEdit(Client client)` deschide o fereastră pentru editarea unui client existent.
-- Datele clientului sunt pre-umplute în formularul de editare.
+#### Edit Client:
+- The `handleEdit(Client client)` method opens a window to edit an existing client.
+- The client's data is pre-filled in the edit form.
 
-#### Ștergere Client:
-- Metoda `deleteClient(int id)` șterge un client din backend printr-o cerere HTTP de tip DELETE.
-- Se trimite cererea către server și se verifică răspunsul.
-- Gestionarea erorilor în cazul unui răspuns necorespunzător.
+#### Delete Client:
+- The `deleteClient(int id)` method deletes a client from the backend via a DELETE HTTP request.
+- Sends the request to the server and checks the response.
+- Error handling for an incorrect response.
 
-## Manual de instalare și utilizare
+## Installation and Usage Guide
 
-### Instalare JDK21:
-1. Descarcti fișierul `jdk-21-windows-x64.exe` de pe siteul oficial JDK.
-2. Rulați instalatorul și urmați pașii indicați.
-3. Adăugați JDK 21 în PATH:
-   - Deschideți setările de mediu (System Properties -> Environment Variables).
-   - În variabila `Path`, adăugați calea către folderul bin al JDK (ex.: `C:\Program Files\Java\jdk-21\bin`).
+### Install JDK21:
+1. Download the file `jdk-21-windows-x64.exe` from the official JDK website.
+2. Run the installer and follow the indicated steps.
+3. Add JDK 21 to the PATH:
+   - Open system settings (System Properties -> Environment Variables).
+   - In the `Path` variable, add the path to the JDK's bin folder (e.g., `C:\Program Files\Java\jdk-21\bin`).
 
-### Instalare Maven:
-1. Localizați folderul `Maven_Installer` din resurse.
-2. Copiați folderul `apache-maven` în `C:\Program Files`.
-3. Adăugați Maven în PATH:
-   - În Environment Variables, adăugați calea către bin din folderul Maven (ex.: `C:\Program Files\apache-maven\bin`).
+### Install Maven:
+1. Locate the `Maven_Installer` folder in the resources.
+2. Copy the `apache-maven` folder to `C:\Program Files`.
+3. Add Maven to PATH:
+   - In Environment Variables, add the path to Maven's `bin` folder (e.g., `C:\Program Files\apache-maven\bin`).
 
-### Instalare Jackson:
-1. Localizați folderul `jackson_Installer` din resurse.
-2. Copiați fișierele Jackson în `C:\Program Files\Java`.
-3. Adăugați Jackson în PATH:
-   - În Environment Variables, adăugați calea către fișierele Jackson.
+### Install Jackson:
+1. Locate the `jackson_Installer` folder in the resources.
+2. Copy the Jackson files to `C:\Program Files\Java`.
+3. Add Jackson to PATH:
+   - In Environment Variables, add the path to the Jackson files.
 
-### Instalare JavaFX:
-1. Localizați folderul `JavaFX_Installer` din resurse.
-2. Copiați folderul `javafx-sdk` în `C:\Program Files\Java`.
-3. Adăugați JavaFX în PATH:
-   - În Environment Variables, adăugați calea către bin din folderul JavaFX.
+### Install JavaFX:
+1. Locate the `JavaFX_Installer` folder in the resources.
+2. Copy the `javafx-sdk` folder to `C:\Program Files\Java`.
+3. Add JavaFX to PATH:
+   - In Environment Variables, add the path to JavaFX's `bin` folder.
 
-### Instalare MySQL:
-1. Descărcați și instalați MySQL Server 8.0.40 din folderul resurse sau de pe site-ul oficial MySQL.
-2. Urmați pașii din asistentul de instalare:
-   - Selectați „Server only” dacă nu aveți nevoie de alte componente MySQL.
-   - Configurați serverul cu un nume de utilizator și parolă sigure.
+### Install MySQL:
+1. Download and install MySQL Server 8.0.40 from the resources folder or the official MySQL website.
+2. Follow the steps in the installation wizard:
+   - Select “Server only” if no other MySQL components are needed.
+   - Configure the server with a secure username and password.
 
-### Configurare MySQL:
-1. Deschideți MySQL Workbench sau orice alt client MySQL.
-2. Conectați-vă la server utilizând credențialele configurate în timpul instalării.
-3. Creați o nouă bază de date și importați fișierul `db.sql` din folderul resurse.
-4. Configurați fișierul `application.properties` din folderul backend:
-   - Înlocuiți valorile cu datele tale pentru baza de date, utilizator MySQL și parolă.
+### Configure MySQL:
+1. Open MySQL Workbench or any other MySQL client.
+2. Connect to the server using the credentials set during installation.
+3. Create a new database and import the `db.sql` file from the resources folder.
+4. Configure the `application.properties` file in the backend folder:
+   - Replace the values with your database details, MySQL username, and password.
 
-### Rulare aplicație:
-1. După ce ați verificat pașii de mai sus, rulați aplicația utilizând executabilul furnizat.
-2. Dacă aplicația întâmpină probleme, verificați:
-   - Serverul MySQL este pornit.
-   - Datele din fișierul `application.properties` sunt corecte.
-   - Variabilele de mediu (Path) sunt configurate corespunzător.
+### Run the Application:
+1. After completing the above steps, run the application using the provided executable.
+2. If the application encounters issues, check the following:
+   - The MySQL server is running.
+   - The data in the `application.properties` file is correct.
+   - Environment variables (Path) are set correctly.
 
-## Bibliografie
+## References
 - Java SE Development Kit 21 Documentation, [Online]. Available: https://docs.oracle.com/en/java/javase/21/.
 - Spring Boot Documentation, [Online]. Available: https://spring.io/projects/spring-boot.
 - JavaFX Documentation, [Online]. Available: https://openjfx.io/.
